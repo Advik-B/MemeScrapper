@@ -1,0 +1,236 @@
+[
+  {
+    "windows": {
+      "3": {
+        "18": {
+          "id": 18,
+          "index": 0,
+          "windowId": 3,
+          "highlighted": false,
+          "active": false,
+          "attention": false,
+          "pinned": false,
+          "status": "complete",
+          "hidden": false,
+          "discarded": false,
+          "incognito": false,
+          "width": 1512,
+          "height": 759,
+          "lastAccessed": 1667751145150,
+          "audible": false,
+          "mutedInfo": {
+            "muted": false
+          },
+          "isInReaderMode": false,
+          "sharingState": {
+            "camera": false,
+            "microphone": false
+          },
+          "successorTabId": -1,
+          "cookieStoreId": "firefox-default",
+          "url": "https://i.redd.it/1yib21bddby91.png",
+          "title": "1yib21bddby91.png (PNG Image, 700 × 1093 pixels) — Scaled (69%)"
+        },
+        "20": {
+          "id": 20,
+          "index": 1,
+          "windowId": 3,
+          "highlighted": false,
+          "active": false,
+          "attention": false,
+          "pinned": false,
+          "status": "complete",
+          "hidden": false,
+          "discarded": false,
+          "incognito": false,
+          "width": 1512,
+          "height": 759,
+          "lastAccessed": 1667751122113,
+          "audible": false,
+          "mutedInfo": {
+            "muted": false
+          },
+          "isInReaderMode": false,
+          "sharingState": {
+            "camera": false,
+            "microphone": false
+          },
+          "successorTabId": -1,
+          "cookieStoreId": "firefox-default",
+          "url": "https://i.redd.it/r9njc1k6hay91.png",
+          "title": "r9njc1k6hay91.png (PNG Image, 1010 × 744 pixels)"
+        },
+        "22": {
+          "id": 22,
+          "index": 2,
+          "windowId": 3,
+          "highlighted": false,
+          "active": false,
+          "attention": false,
+          "pinned": false,
+          "status": "complete",
+          "hidden": false,
+          "discarded": false,
+          "incognito": false,
+          "width": 1512,
+          "height": 759,
+          "lastAccessed": 1667751148373,
+          "audible": false,
+          "mutedInfo": {
+            "muted": false
+          },
+          "isInReaderMode": false,
+          "sharingState": {
+            "camera": false,
+            "microphone": false
+          },
+          "successorTabId": -1,
+          "cookieStoreId": "firefox-default",
+          "url": "https://i.redd.it/8zcznfwtt6y91.jpg",
+          "title": "8zcznfwtt6y91.jpg (JPEG Image, 800 × 450 pixels)"
+        },
+        "24": {
+          "id": 24,
+          "index": 3,
+          "windowId": 3,
+          "highlighted": false,
+          "active": false,
+          "attention": false,
+          "pinned": false,
+          "status": "complete",
+          "hidden": false,
+          "discarded": false,
+          "incognito": false,
+          "width": 1512,
+          "height": 759,
+          "lastAccessed": 1667751208411,
+          "audible": false,
+          "mutedInfo": {
+            "muted": false
+          },
+          "isInReaderMode": false,
+          "sharingState": {
+            "camera": false,
+            "microphone": false
+          },
+          "successorTabId": -1,
+          "cookieStoreId": "firefox-default",
+          "url": "https://external-preview.redd.it/MS8m_Bv8Q0-Pra0rY1Ple5wpxTTnLr2MvFv6V6-lD9Q.png?auto=webp&s=92d2739908ac97b89c9fd68b857aadfcbfe9f899",
+          "title": "MS8m_Bv8Q0-Pra0rY1Ple5wpxTTnLr2MvFv6V6-lD9Q.png (WEBP Image, 1440 × 2562 pixels) — Scaled (29%)"
+        },
+        "26": {
+          "id": 26,
+          "index": 4,
+          "windowId": 3,
+          "highlighted": false,
+          "active": false,
+          "attention": false,
+          "pinned": false,
+          "status": "complete",
+          "hidden": false,
+          "discarded": false,
+          "incognito": false,
+          "width": 1512,
+          "height": 759,
+          "lastAccessed": 1667751213435,
+          "audible": false,
+          "mutedInfo": {
+            "muted": false
+          },
+          "isInReaderMode": false,
+          "sharingState": {
+            "camera": false,
+            "microphone": false
+          },
+          "successorTabId": -1,
+          "cookieStoreId": "firefox-default",
+          "url": "https://i.redd.it/6e434m6175y91.jpg",
+          "title": "6e434m6175y91.jpg (JPEG Image, 640 × 948 pixels) — Scaled (80%)"
+        },
+        "28": {
+          "id": 28,
+          "index": 5,
+          "windowId": 3,
+          "highlighted": false,
+          "active": false,
+          "attention": false,
+          "pinned": false,
+          "status": "complete",
+          "hidden": false,
+          "discarded": false,
+          "incognito": false,
+          "width": 1512,
+          "height": 759,
+          "lastAccessed": 1667751222512,
+          "audible": false,
+          "mutedInfo": {
+            "muted": false
+          },
+          "isInReaderMode": false,
+          "sharingState": {
+            "camera": false,
+            "microphone": false
+          },
+          "successorTabId": -1,
+          "cookieStoreId": "firefox-default",
+          "url": "https://i.redd.it/a80szdzrr5y91.jpg",
+          "title": "a80szdzrr5y91.jpg (JPEG Image, 554 × 550 pixels)"
+        },
+        "30": {
+          "id": 30,
+          "index": 6,
+          "windowId": 3,
+          "highlighted": true,
+          "active": true,
+          "attention": false,
+          "pinned": false,
+          "status": "complete",
+          "hidden": false,
+          "discarded": false,
+          "incognito": false,
+          "width": 1512,
+          "height": 759,
+          "lastAccessed": 1667751233265,
+          "audible": false,
+          "mutedInfo": {
+            "muted": false
+          },
+          "isInReaderMode": false,
+          "sharingState": {
+            "camera": false,
+            "microphone": false
+          },
+          "successorTabId": -1,
+          "cookieStoreId": "firefox-default",
+          "url": "https://i.redd.it/i7dbk70458y91.jpg",
+          "title": "i7dbk70458y91.jpg (JPEG Image, 798 × 741 pixels)"
+        }
+      }
+    },
+    "windowsNumber": 1,
+    "windowsInfo": {
+      "3": {
+        "id": 3,
+        "focused": true,
+        "top": 38,
+        "left": 0,
+        "width": 1512,
+        "height": 872,
+        "incognito": false,
+        "type": "normal",
+        "state": "maximized",
+        "alwaysOnTop": false,
+        "title": "i7dbk70458y91.jpg (JPEG Image, 798 × 741 pixels)"
+      }
+    },
+    "tabsNumber": 7,
+    "name": "Memes",
+    "date": 1667751233257,
+    "lastEditedTime": 1667751271941,
+    "tag": [
+      "MacBook Pro"
+    ],
+    "sessionStartTime": 1667750160169,
+    "id": "2d13fc27-e942-41ec-a0f5-08028741b199"
+  }
+]
