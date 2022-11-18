@@ -1,59 +1,13 @@
-import json
 import multiprocessing as mp
-from os import listdir, makedirs as mkdir
-from os.path import exists, isdir, isfile, abspath
+from os import listdir
+from os.path import abspath
 from shutil import rmtree
-from sys import argv
-from lib_utility import *
-from lib_scrapper import load_urls
 
 import psutil
 
+from lib_utility import fs_check, process, remove, download, console
 
-filename: str = "data.json"
-try:
-    filename = argv[1]
-except IndexError:
-    pass
-
-_ls = listdir(".")
-
-# Get the data from the local file
-with open(filename) as f:
-    data = json.load(f)
-
-# Filter the data we need
-data = data[0]
-windows = data["windows"]["3"]
-
-urls = []
-for _, v in windows.items():
-    urls.append(v["url"])
-del data, windows, v
-# Convert the urls to a set to remove duplicates
-urls = set(urls)
-# Convert the urls to a tuple to make it immutable
-urls = tuple(urls)
-# print(*urls, sep="\n") # DEBUG: Print the urls
-save_path = "cache"
-output_path = "output"
-
-
-def fs_check(path):
-    if exists(path):
-        if isdir(path):
-            rmtree(path)
-            mkdir(path)
-        elif isfile(path):
-            remove(path)
-            mkdir(path)
-    else:
-        mkdir(path)
-
-
-
-
-if __name__ == "__main__":
+def main():
     fs_check(save_path)
     fs_check(output_path)
     cpu_count = mp.cpu_count()
@@ -93,3 +47,6 @@ if __name__ == "__main__":
     console.print("\n\n[bold blue]Done removing images![/]\n\n")
     console.print("[bold green]Done, check the output folder![/]")
     console.print(f"[i yellow]{abspath(output_path)}[/]")
+
+if __name__ == "__main__":
+    main()
