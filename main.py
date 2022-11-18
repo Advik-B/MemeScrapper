@@ -23,6 +23,7 @@ from lib_scrapper import (
 
 def main():
     urls = load_urls("data.json")
+    urls = remove_duplicates(urls)
     fs_check(SAVE_PATH)
     fs_check(OUTPUT_PATH)
     cpu_count = mp.cpu_count()
