@@ -75,7 +75,7 @@ def get_image_from_reddit_comments(url: str):
     for image in images:
         im = image["href"]
         if re.match(_i_reddit, im):
-            yield im
+            return im
 
 
 def test():
