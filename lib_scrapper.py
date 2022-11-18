@@ -45,7 +45,7 @@ def remove_duplicates(urls: tuple):
     return tuple(set(urls))
 
 
-def get_image_urls_reddit(urls: tuple):
+def get_image_urls_reddit(urls: tuple, even_reddit_comments: bool = False):
     reddit_regex = REDDIT_URLS_REGEXES[:-2]  # From the first element to the second-from-the-last element
     reddit_comments_regex = REDDIT_URLS_REGEXES[0]
     valid_urls = []
@@ -56,7 +56,12 @@ def get_image_urls_reddit(urls: tuple):
                 break
 
     for url in valid_urls:
-        pass
+        if re.match(reddit_comments_regex, url):
+            if even_reddit_comments:
+                valid_urls.append(get_image_from_reddit_comments(url))
+        else:
+            valid_urls.append(url)
+
 
 
 def get_image_from_reddit_comments(url: str):
