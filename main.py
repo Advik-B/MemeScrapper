@@ -5,7 +5,16 @@ from shutil import rmtree
 
 import psutil
 
-from lib_utility import fs_check, process, remove, download, console, SAVE_PATH, OUTPUT_PATH, load_urls
+from lib_utility import (
+    fs_check,
+    process,
+    remove,
+    download,
+    console,
+    SAVE_PATH,
+    OUTPUT_PATH,
+    load_urls
+)
 
 
 def main():
