@@ -22,20 +22,6 @@ REDDIT_COMMENTS_REGEX = r"https://www.reddit.com/r/[^/]+/*"
 IMGUR_REGEX = r"https://i.imgur.com/[^/]+"
 
 
-def load_urls_(filename):
-    with open(filename) as f:
-        data = json.load(f)
-
-    data = data[0]
-    windows = data["windows"]["3"]
-    urls = []
-    for _, v in windows.items():
-        urls.append(v["url"])
-    del data, windows, v
-    urls = set(urls)
-    urls = tuple(urls)
-    return urls
-
 
 def url_filter(url: str):
     for regex in REDDIT_URLS_REGEXES:
@@ -66,17 +52,6 @@ def get_image_urls_reddit(urls: tuple[str], even_reddit_comments: bool = False):
             _final_urls.append(url)
 
     return _final_urls
-
-
-def download(url: str):
-    r = get(url, stream=True)
-    filename_: str = url.split("/")[-1]
-    with open(pjoin(save_path, filename_), "wb") as f:
-        for chunk in r.iter_content(chunk_size=1024):
-            if chunk:
-                f.write(chunk)
-                f.flush()
-
 
 def get_image_from_reddit_comments(url: str, save: bool = False):
     time_to_wait = 5
@@ -113,21 +88,3 @@ def get_image_urls(urls: tuple[str], even_reddit_comments: bool = False):
     reddit_urls_ = get_image_urls_reddit(reddit_urls, even_reddit_comments)
     # Return the rest
     return reddit_urls_.extend(non_reddit_urls)
-
-
-def test():
-    urls = load_urls_("memes.json")
-    TEST_URL = "https://www.reddit.com/r/ProgrammerHumor/comments/yyakjv/everyone_go_home_turns_out_all_our_work_runs/"
-    first_len = len(urls)
-    urls = remove_duplicates(urls)
-    urls = filter(url_filter, urls)
-    urls = tuple(urls)
-    filt_len = len(urls)
-    print(f"Filtered {first_len - filt_len} urls out of {first_len} urls")
-    urls__ = []
-    urls__.extend(urls)
-    urls__.append(TEST_URL)
-
-
-if __name__ == "__main__":
-    test()
