@@ -60,6 +60,15 @@ def load_urls(filename):
 
 
 def fs_check(path):
+    """
+    Filesystem check
+    checks if the path exists and if it is a directory or a file
+    if it is a file, it will be deleted
+    if it is a directory, it will be deleted
+    if it does not exist, it will be created
+    :param path:
+    :return: None
+    """
     if exists(path):
         if isdir(path):
             rmtree(path)
