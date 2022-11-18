@@ -63,7 +63,7 @@ def get_image_urls_reddit(urls: tuple, even_reddit_comments: bool = False):
             valid_urls.append(url)
 
 
-def get_image_from_reddit_comments(url: str):
+def get_image_from_reddit_comments(url: str, save: bool = False):
     time_to_wait = 5
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -74,8 +74,9 @@ def get_image_from_reddit_comments(url: str):
     soup = BeautifulSoup(r.text, "html.parser")
     del r
     # Save the html for debugging
-    with open("reddit.html", "w") as f:
-        f.write(soup.prettify())
+    if save:
+        with open("reddit.html", "w") as f:
+            f.write(soup.prettify())
     images = soup.find_all("a", {"target": "_blank"})
     for image in images:
         im = image["href"]
