@@ -2,3 +2,4 @@ requests
 pillow
 psutil
 rich
+bs4
