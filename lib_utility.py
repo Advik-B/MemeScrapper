@@ -1,10 +1,12 @@
+import json
+from os import remove as rm, makedirs as mkdir
+from os.path import join as pjoin, exists, isdir, isfile
+from shutil import rmtree
+
+import requests
+from PIL import Image
 from rich.console import Console
 from rich.traceback import install
-import requests
-from os.path import join as pjoin, exists, isdir, isfile, abspath
-from os import listdir, remove as rm, makedirs as mkdir
-from PIL import Image
-import json
 
 console = Console()
 install(show_locals=True, extra_lines=5)
@@ -41,6 +43,7 @@ def remove(image: str):
     console.print(f"[magenta]Removing[/] [yellow]{image}[/]")
     rm(image)
 
+
 def load_urls(filename):
     with open(filename) as f:
         data = json.load(f)
@@ -54,3 +57,15 @@ def load_urls(filename):
     urls = set(urls)
     urls = tuple(urls)
     return urls
+
+
+def fs_check(path):
+    if exists(path):
+        if isdir(path):
+            rmtree(path)
+            mkdir(path)
+        elif isfile(path):
+            remove(path)
+            mkdir(path)
+    else:
+        mkdir(path)
