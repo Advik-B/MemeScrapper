@@ -63,7 +63,6 @@ def get_image_urls_reddit(urls: tuple, even_reddit_comments: bool = False):
             valid_urls.append(url)
 
 
-
 def get_image_from_reddit_comments(url: str):
     time_to_wait = 5
     headers = {
@@ -93,6 +92,7 @@ def test():
     filt_len = len(urls)
     print(f"Filtered {first_len - filt_len} urls out of {first_len} urls")
     get_image_urls_reddit(urls)
+
 
 if __name__ == "__main__":
     test()
