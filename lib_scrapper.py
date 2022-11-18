@@ -1,5 +1,7 @@
 import json
 import re
+from typing import Tuple
+
 from requests import get
 from bs4 import BeautifulSoup
 
@@ -18,6 +20,7 @@ REDDIT_URLS_REGEXES = (
     r"https://i.imgur.com/[^/]+",
 )
 
+REDDIT_COMMENTS_REGEX = r"https://www.reddit.com/r/[^/]+/*"
 
 def load_urls_(filename):
     with open(filename) as f:
@@ -46,7 +49,7 @@ def remove_duplicates(urls: tuple):
 
 
 def get_image_urls_reddit(urls: tuple[str], even_reddit_comments: bool = False):
-    reddit_regex = REDDIT_URLS_REGEXES[:-2]  # From the first element to the second-from-the-last element
+    reddit_regex = REDDIT_URLS_REGEXES[:-1]  # From the first element to the second-from-the-last element
     reddit_comments_regex = REDDIT_URLS_REGEXES[0]
     valid_urls = []
     for url in urls:
@@ -55,12 +58,15 @@ def get_image_urls_reddit(urls: tuple[str], even_reddit_comments: bool = False):
                 valid_urls.append(url)
                 break
 
+    _final_urls = []
     for url in valid_urls:
-        if re.match(reddit_comments_regex, url):
-            if even_reddit_comments:
-                valid_urls.append(get_image_from_reddit_comments(url))
+        print(f"Checking {url}")
+        if re.match(REDDIT_COMMENTS_REGEX, url) and even_reddit_comments:
+            _final_urls.append(get_image_from_reddit_comments(url))
         else:
-            valid_urls.append(url)
+            _final_urls.append(url)
+
+    return _final_urls
 
 
 def get_image_from_reddit_comments(url: str, save: bool = False):
@@ -93,7 +99,9 @@ def test():
     urls = tuple(urls)
     filt_len = len(urls)
     print(f"Filtered {first_len - filt_len} urls out of {first_len} urls")
-    get_image_urls_reddit((TEST_URL), even_reddit_comments=True)
+    urls__ = []
+    urls__.extend(urls)
+    urls__.append(TEST_URL)
 
 
 if __name__ == "__main__":
