@@ -66,7 +66,8 @@ def get_image_urls_reddit(urls: tuple, even_reddit_comments: bool = False):
 def get_image_from_reddit_comments(url: str):
     time_to_wait = 5
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                      "Chrome/92.0.4515.159 Safari/537.36 "
     }
     r = get(url, headers=headers, timeout=time_to_wait)
     _i_reddit = REDDIT_URLS_REGEXES[1]
