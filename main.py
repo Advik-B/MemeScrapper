@@ -5,11 +5,13 @@ from shutil import rmtree
 
 import psutil
 
-from lib_utility import fs_check, process, remove, download, console
+from lib_utility import fs_check, process, remove, download, console, SAVE_PATH, OUTPUT_PATH, load_urls
+
 
 def main():
-    fs_check(save_path)
-    fs_check(output_path)
+    urls = load_urls("data.json")
+    fs_check(SAVE_PATH)
+    fs_check(OUTPUT_PATH)
     cpu_count = mp.cpu_count()
     # to run at a time
     per_process = max(len(urls) // cpu_count, 1)
@@ -29,7 +31,7 @@ def main():
         pool_1.close()
         pool_1.join()
     console.print("\n\n[bold blue]Downloaded all images[/]\n\n")
-    images = listdir(save_path)
+    images = listdir(SAVE_PATH)
     with mp.Pool() as pool_2:
         pool_2.map(process, images, chunksize=per_process_ram)
         pool_2.close()
@@ -37,16 +39,17 @@ def main():
 
     console.print("\n\n[bold blue]Done processing images![/]\n\n")
 
-    images = listdir(save_path)
+    images = listdir(SAVE_PATH)
     with mp.Pool() as pool_3:
         pool_3.map(remove, images, chunksize=per_process_ram)
         pool_3.close()
         pool_3.join()
 
-    rmtree(save_path, ignore_errors=True)
+    rmtree(SAVE_PATH, ignore_errors=True)
     console.print("\n\n[bold blue]Done removing images![/]\n\n")
     console.print("[bold green]Done, check the output folder![/]")
-    console.print(f"[i yellow]{abspath(output_path)}[/]")
+    console.print(f"[i yellow]{abspath(OUTPUT_PATH)}[/]")
+
 
 if __name__ == "__main__":
     main()
