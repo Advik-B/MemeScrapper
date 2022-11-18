@@ -2,7 +2,9 @@ from rich.console import Console
 from rich.traceback import install
 import requests
 from os.path import join as pjoin, exists, isdir, isfile, abspath
+from os import listdir, remove as rm, makedirs as mkdir
 from PIL import Image
+import json
 
 console = Console()
 install(show_locals=True, extra_lines=5)
@@ -38,3 +40,17 @@ def remove(image: str):
     image = pjoin(SAVE_PATH, image)
     console.print(f"[magenta]Removing[/] [yellow]{image}[/]")
     rm(image)
+
+def load_urls(filename):
+    with open(filename) as f:
+        data = json.load(f)
+
+    data = data[0]
+    windows = data["windows"]["3"]
+    urls = []
+    for _, v in windows.items():
+        urls.append(v["url"])
+    del data, windows, v
+    urls = set(urls)
+    urls = tuple(urls)
+    return urls
