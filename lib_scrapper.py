@@ -1,6 +1,4 @@
-import json
 import re
-from typing import Tuple
 
 from requests import get
 from bs4 import BeautifulSoup
