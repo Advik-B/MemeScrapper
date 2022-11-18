@@ -45,7 +45,7 @@ def remove_duplicates(urls: tuple):
     return tuple(set(urls))
 
 
-def get_image_urls_reddit(urls: tuple, even_reddit_comments: bool = False):
+def get_image_urls_reddit(urls: tuple[str], even_reddit_comments: bool = False):
     reddit_regex = REDDIT_URLS_REGEXES[:-2]  # From the first element to the second-from-the-last element
     reddit_comments_regex = REDDIT_URLS_REGEXES[0]
     valid_urls = []
@@ -93,7 +93,7 @@ def test():
     urls = tuple(urls)
     filt_len = len(urls)
     print(f"Filtered {first_len - filt_len} urls out of {first_len} urls")
-    get_image_urls_reddit(urls)
+    get_image_urls_reddit((TEST_URL), even_reddit_comments=True)
 
 
 if __name__ == "__main__":
