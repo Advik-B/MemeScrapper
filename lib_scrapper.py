@@ -110,7 +110,7 @@ def get_image_urls(urls: tuple[str], even_reddit_comments: bool = False):
             non_reddit_urls.append(url)
 
     # Get the images from reddit
-    reddit_urls_ = get_image_urls_reddit(reddit_urls, even_reddit_comments=True)
+    reddit_urls_ = get_image_urls_reddit(reddit_urls, even_reddit_comments)
     # Return the rest
     return reddit_urls_.extend(non_reddit_urls)
 
