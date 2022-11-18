@@ -6,13 +6,7 @@ from shutil import rmtree
 from sys import argv
 
 import psutil
-import requests
-from PIL import Image
-from rich.console import Console
-from rich.traceback import install
 
-console = Console()
-install(show_locals=True, extra_lines=5)
 
 filename: str = "data.json"
 try:
@@ -55,33 +49,6 @@ def fs_check(path):
         mkdir(path)
 
 
-def download(url: str):
-    r = requests.get(url, stream=True)
-    filename_: str = url.split("/")[-1]
-    console.print(f"[green]Downloading[/] [yellow]{filename_}[/] ({url})")
-    with open(pjoin(save_path, filename_), "wb") as f:
-        for chunk in r.iter_content(chunk_size=1024):
-            if chunk:
-                f.write(chunk)
-                f.flush()
-
-
-def process(image: str):
-    image_ = image
-    sav_ = pjoin(output_path, image_.replace("jpg", "PNG"))
-    image = pjoin(save_path, image)
-    console.print(f"[cyan]Processing[/] [yellow]{image}[/] -> [yellow]{sav_}[/]")
-    img = Image.open(image)
-    img = img.convert("RGB")
-    img.save(sav_, "PNG")
-    img.close()
-    del img, image, image_
-
-
-def remove(image: str):
-    image = pjoin(save_path, image)
-    console.print(f"[magenta]Removing[/] [yellow]{image}[/]")
-    rm(image)
 
 
 if __name__ == "__main__":
