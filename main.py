@@ -16,6 +16,10 @@ from lib_utility import (
     load_urls
 )
 
+from lib_scrapper import (
+    get_image_urls,
+    remove_duplicates,
+)
 
 def main():
     urls = load_urls("data.json")
