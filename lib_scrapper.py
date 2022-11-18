@@ -21,6 +21,7 @@ REDDIT_URLS_REGEXES = (
 REDDIT_COMMENTS_REGEX = r"https://www.reddit.com/r/[^/]+/*"
 IMGUR_REGEX = r"https://i.imgur.com/[^/]+"
 
+
 def load_urls_(filename):
     with open(filename) as f:
         data = json.load(f)
@@ -66,6 +67,7 @@ def get_image_urls_reddit(urls: tuple[str], even_reddit_comments: bool = False):
 
     return _final_urls
 
+
 def download(url: str):
     r = get(url, stream=True)
     filename_: str = url.split("/")[-1]
@@ -74,6 +76,7 @@ def download(url: str):
             if chunk:
                 f.write(chunk)
                 f.flush()
+
 
 def get_image_from_reddit_comments(url: str, save: bool = False):
     time_to_wait = 5
@@ -95,7 +98,8 @@ def get_image_from_reddit_comments(url: str, save: bool = False):
         if re.match(_i_reddit, im):
             return im
 
-def get_images(urls: tuple[str], even_reddit_comments: bool = False):
+
+def get_image_urls(urls: tuple[str], even_reddit_comments: bool = False):
     # Sort the urls into reddit and non-reddit
     reddit_urls = []
     non_reddit_urls = []
@@ -107,9 +111,9 @@ def get_images(urls: tuple[str], even_reddit_comments: bool = False):
 
     # Get the images from reddit
     reddit_urls_ = get_image_urls_reddit(reddit_urls, even_reddit_comments=True)
-    # Get the images from non-reddit
+    # Return the rest
+    return reddit_urls_.extend(non_reddit_urls)
 
-    
 
 def test():
     urls = load_urls_("memes.json")
