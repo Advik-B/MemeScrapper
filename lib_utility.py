@@ -55,8 +55,7 @@ def load_urls(filename):
         urls.append(v["url"])
     del data, windows, v
     urls = set(urls)
-    urls = tuple(urls)
-    return urls
+    return tuple(urls)
 
 
 def fs_check(path):
