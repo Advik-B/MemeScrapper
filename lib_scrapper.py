@@ -84,7 +84,6 @@ def get_image_urls(urls: tuple[str], even_reddit_comments: bool = False):
             print(f"Found imgur url: {url}")
             non_reddit_urls.append(url)
 
-    # Get the images from reddit
-    reddit_urls_ = reddit_urls_.extend(get_image_urls_reddit(reddit_urls, even_reddit_comments))
-    # Return the rest
-    return reddit_urls.extend(non_reddit_urls).extend(reddit_urls_)
+    reddit_urls = get_image_urls_reddit(reddit_urls, even_reddit_comments)
+    reddit_urls = remove_duplicates(reddit_urls)
+    reddit_urls
